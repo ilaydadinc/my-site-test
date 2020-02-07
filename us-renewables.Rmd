@@ -217,8 +217,11 @@ hydro_ts %>%
   autoplot()
 
 ```
-
+observation that are 12 months apart are more correlated
 We see peaks at 12 months: annual-difference similarities in consumption. 
+
+
+## DANGER DANGER
 
 ### Forecast future hydro power consumption 
 
@@ -228,7 +231,7 @@ hydro_model <- hydro_ts %>%
     arima = ARIMA(value),
     ets = ETS(value)
   ) %>%
-  fabletools::forecast(h = "2 years")
+  fabletools::forecast(h = "4 years")
 
 hydro_model %>% 
   autoplot(filter(hydro_ts, 
